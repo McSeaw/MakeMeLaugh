@@ -6,8 +6,8 @@ public class BonusPoint : MonoBehaviour
 {
     private SpawnManager _spawnManager;
 
-    [SerializeField] private float _incSpeed;
-    public float incSpeed {  get { return _incSpeed; } private set {  _incSpeed = value; } }
+    [SerializeField] protected float _incSpeed;
+    public float incSpeed {  get { return _incSpeed; } protected set {  _incSpeed = value; } }
 
     [SerializeField] protected float _lifeTime;
 

@@ -58,6 +58,7 @@ public class SceneManager : MonoBehaviour
             if (hit.collider.gameObject.TryGetComponent(out BonusPoint bonusPoint))
             {
                 _IncSpeed = bonusPoint.incSpeed;
+                if (bonusPoint.gameObject.TryGetComponent(out BadPoint badPoint)) _IncSpeed = badPoint.incSpeed;
                 return true;
             }
         }
