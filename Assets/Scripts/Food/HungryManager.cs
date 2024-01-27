@@ -22,10 +22,13 @@ public class HungryManager : MonoBehaviour
     private Coroutine _hungryCoroutine;
     private Coroutine _spawnCoroutine;
 
+    private MouseSpawn _mouseSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
         _hungryCoroutine = StartCoroutine(Hungry());
+        _mouseSpawn = GetComponent<MouseSpawn>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,7 @@ public class HungryManager : MonoBehaviour
         {
             LevelManager.Instance.State = LevelManager.PlayerState.Hungry;
             _spawnCoroutine = StartCoroutine(SpawnFoods());
+            if (_mouseSpawn != null) { _mouseSpawn.OnHungry(); }
             CharacterController.Instance.OnEvent();
         }
     }
@@ -56,6 +60,7 @@ public class HungryManager : MonoBehaviour
         _hungryBubble.gameObject.SetActive(false);
         LevelManager.Instance.State = LevelManager.PlayerState.Normal;
         StopCoroutine(_spawnCoroutine);
+        if (_mouseSpawn != null) { _mouseSpawn.ExitHungry(); }
         _hungryCoroutine = StartCoroutine(Hungry());
         CharacterController.Instance.OnEventEnd();
     }

@@ -27,6 +27,8 @@ public class Food : MonoBehaviour
     [SerializeField] private float _boundX;
     [SerializeField] private float _boundY;
 
+    [SerializeField] private float _torqueModifier;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class Food : MonoBehaviour
         bool flag = temp > 0.5 ? true : false;
         transform.position = GenerateSpawnPos(flag);
         foodRb.velocity = new Vector2(GenerateVelocity(flag), 0);
+        foodRb.AddTorque(_torqueModifier * GenerateVelocity(flag));
         Physics.gravity *= _gravityModifier;
     }
 
@@ -70,6 +73,7 @@ public class Food : MonoBehaviour
             if (_foodType == hungryManager._expectedFood) 
             {
                 hungryManager.RelieveHungry();
+                LevelManager.Instance.LikeFood();
                 Destroy(gameObject);
             }
             else
@@ -109,8 +113,8 @@ public class Food : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void BeStolen(float x)
+    public void BeStolen(Vector2 pos)
     {
-        transform.position = new Vector2(x, 0);
+        transform.position = pos;
     }
 }

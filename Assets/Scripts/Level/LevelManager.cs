@@ -64,32 +64,14 @@ public class LevelManager : MonoBehaviour
         var isInRange = IsInRange();
         if (isInRange && State == PlayerState.Normal && _IncSpeed > 0)
         {
-            CharacterController.Instance.OnTouch();
-            if (!_isDelayTouching)
-            {
-                StartCoroutine(DelayTouchEnd());
-                _isDelayTouching = true;
-            }
-            else
-            {
-                _delayTouchTime = 0.5f;
-            }
+            OnTouchTrigger();
             _currentTime += _IncSpeed * Time.deltaTime;
         }
         else
         {
             if (isInRange)
             {
-                CharacterController.Instance.OnReject();
-                if (!_isDelayRejecting)
-                {
-                    StartCoroutine(DelayRejectEnd());
-                    _isDelayRejecting = true;
-                }
-                else
-                {
-                    _delayRejectTime = 0.5f;
-                }
+                OnRejectTrigger();
                 if (State == PlayerState.Normal) { _currentTime += _IncSpeed * Time.deltaTime; }
                 else { _currentTime -= _hungryDecSpeed * Time.deltaTime; }
             }
@@ -150,7 +132,42 @@ public class LevelManager : MonoBehaviour
 
     public void DontLikeFood()
     {
+        OnRejectTrigger();
         _currentTime = _currentTime - _dontLikeFoodDec > 0 ? _currentTime - _dontLikeFoodDec : 0;
+    }
+
+    public void LikeFood()
+    {
+        OnTouchTrigger();
+        _currentTime += _dontLikeFoodDec;
+    }
+
+    void OnTouchTrigger()
+    {
+        CharacterController.Instance.OnTouch();
+        if (!_isDelayTouching)
+        {
+            StartCoroutine(DelayTouchEnd());
+            _isDelayTouching = true;
+        }
+        else
+        {
+            _delayTouchTime = 0.5f;
+        }
+    }
+
+    void OnRejectTrigger()
+    {
+        CharacterController.Instance.OnReject();
+        if (!_isDelayRejecting)
+        {
+            StartCoroutine(DelayRejectEnd());
+            _isDelayRejecting = true;
+        }
+        else
+        {
+            _delayRejectTime = 0.5f;
+        }
     }
 
     IEnumerator DelayRejectEnd()

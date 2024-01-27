@@ -218,8 +218,8 @@ MonoBehaviour:
   Angry: {fileID: 21300000, guid: 377fc23abf95640419843a359ebca2aa, type: 3}
   Rage: {fileID: 21300000, guid: 8b9d589825b630e4f91f366a2667ca57, type: 3}
   Smile_small: {fileID: 21300000, guid: 520a25c8345b3c7469006b526f6a9d54, type: 3}
-  Smile_large: {fileID: 21300000, guid: 6521eb7020342e143aa8bf3342cc11ad, type: 3}
-  Laugh: {fileID: 21300000, guid: a53be90911a380845b7a0fd31d017dc8, type: 3}
+  Smile_large: {fileID: 21300000, guid: a53be90911a380845b7a0fd31d017dc8, type: 3}
+  Laugh: {fileID: 21300000, guid: 6521eb7020342e143aa8bf3342cc11ad, type: 3}
   Face: {fileID: 8449474424997315137}
   CurrentEmote: 0
 --- !u!95 &-6431483747573553432

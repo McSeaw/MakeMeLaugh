@@ -18,9 +18,6 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float _minLifeTime;
     [SerializeField] private float _maxScale;
     [SerializeField] private float _minScale;
-
-    [SerializeField] private Food _foodPrefab;
-
     // Start is called before the first frame update
     void Start()
     {

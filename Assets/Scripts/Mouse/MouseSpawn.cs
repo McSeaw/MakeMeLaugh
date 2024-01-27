@@ -10,6 +10,8 @@ public class MouseSpawn : MonoBehaviour
 
     private bool _isSpawning;
 
+    private Coroutine _spawnCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,18 +26,21 @@ public class MouseSpawn : MonoBehaviour
 
     IEnumerator SpawnMouse()
     {
-        Instantiate(_mousePrefab);
-        yield return new WaitForSeconds(spawnIntervel);
+        while (true)
+        {
+            Instantiate(_mousePrefab);
+            yield return new WaitForSeconds(spawnIntervel);
+        }
     }
 
     public void OnHungry()
     {
-        if (!_isSpawning) StartCoroutine(SpawnMouse());
+        if (!_isSpawning) _spawnCoroutine = StartCoroutine(SpawnMouse());
         _isSpawning = true;
     }
     public void ExitHungry()
     {
         _isSpawning = false;
-        StopCoroutine(SpawnMouse());
+        StopCoroutine(_spawnCoroutine);
     }
 }
