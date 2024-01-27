@@ -69,8 +69,8 @@ public class Food : MonoBehaviour
 
             if (_foodType == hungryManager._expectedFood) 
             {
-                Destroy(gameObject);
                 hungryManager.RelieveHungry();
+                Destroy(gameObject);
             }
             else
             {

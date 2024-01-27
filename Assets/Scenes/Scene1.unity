@@ -237,11 +237,11 @@ Transform:
   m_GameObject: {fileID: 308176576}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.7622404, y: -104.75404, z: 1.689815}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 550667299}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -364,7 +364,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 308176578}
   - {fileID: 975439295}
   - {fileID: 1620074133}
   - {fileID: 1824027677}
@@ -1205,10 +1204,10 @@ MonoBehaviour:
   _foodSprites:
   - {fileID: 21300000, guid: 279ca17a474f93f4b82963557a4f42d8, type: 3}
   - {fileID: 21300000, guid: 496b1102be261774893f772646471398, type: 3}
-  _minHungryInterval: 3
-  _maxHungryInterval: 5
+  _minHungryInterval: 2
+  _maxHungryInterval: 2
   _minSpawnFoodInterval: 1
-  _maxSpawnFoodInterval: 1.5
+  _maxSpawnFoodInterval: 1
   _hungryBubble: {fileID: 1043308400}
   _expectedFoodImg: {fileID: 771316237}
   _expectedFood: 0
@@ -1242,8 +1241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointerNormal: {fileID: 2800000, guid: a45b2cd37ec10094a9149624b6456a70, type: 3}
-  _pointerDrag_1: {fileID: 0}
-  _pointerDrag_2: {fileID: 0}
+  _pointerDrag_1: {fileID: 2800000, guid: 8e22a7014b9e05c4e8f5b7a985ce9f76, type: 3}
+  _pointerDrag_2: {fileID: 2800000, guid: 49316c040ab7041418527e193b4ca350, type: 3}
 --- !u!4 &1978431322
 Transform:
   m_ObjectHideFlags: 0
@@ -1471,3 +1470,4 @@ SceneRoots:
   - {fileID: 1978431322}
   - {fileID: 1487656399}
   - {fileID: 869652752}
+  - {fileID: 308176578}

@@ -16,7 +16,7 @@ public class StickController : MonoBehaviour, IPointerDownHandler, IDragHandler,
     void Start()
     {
         _stickImg = GetComponent<Image>();
-        _defaultPos = _stickImg.transform.position;
+        _defaultPos = transform.position;
     }
 
     // Update is called once per frame

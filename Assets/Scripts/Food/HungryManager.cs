@@ -17,43 +17,37 @@ public class HungryManager : MonoBehaviour
     [SerializeField] private Image _hungryBubble;
     [SerializeField] private Image _expectedFoodImg;
 
-    private bool _isSpawning;
-
     public int _expectedFood;
+
+    private Coroutine _hungryCoroutine;
+    private Coroutine _spawnCoroutine;
 
     // Start is called before the first frame update
     void Start()
     {
-        _isSpawning = false;
-        StartCoroutine(Hungry());
+        _hungryCoroutine = StartCoroutine(Hungry());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (LevelManager.Instance.State == LevelManager.PlayerState.Hungry && !_isSpawning)
-        {
-            _isSpawning = true;
-        }
+
     }
 
     IEnumerator Hungry()
     {
-        while (true)
-        {
-            if (LevelManager.Instance.State == LevelManager.PlayerState.Normal)
-            {
-                var hungryIntervel = Random.Range(_minHungryInterval, _maxHungryInterval);
-                yield return new WaitForSeconds(hungryIntervel);
+        var hungryIntervel = Random.Range(_minHungryInterval, _maxHungryInterval);
+        yield return new WaitForSeconds(hungryIntervel);
 
-                _expectedFood = Random.Range(0, _foodPrefabs.Count);
-                _expectedFoodImg.sprite = _foodSprites[_expectedFood];
-                _hungryBubble.gameObject.SetActive(true);
-                yield return new WaitForSeconds(1);
-            
-                LevelManager.Instance.State = LevelManager.PlayerState.Hungry;
-                CharacterController.Instance.OnEvent();
-            }
+        _expectedFood = Random.Range(0, _foodPrefabs.Count);
+        _expectedFoodImg.sprite = _foodSprites[_expectedFood];
+        _hungryBubble.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        if (LevelManager.Instance.State == LevelManager.PlayerState.Normal)
+        {
+            LevelManager.Instance.State = LevelManager.PlayerState.Hungry;
+            _spawnCoroutine = StartCoroutine(SpawnFoods());
+            CharacterController.Instance.OnEvent();
         }
     }
 
@@ -61,8 +55,8 @@ public class HungryManager : MonoBehaviour
     {
         _hungryBubble.gameObject.SetActive(false);
         LevelManager.Instance.State = LevelManager.PlayerState.Normal;
-        _isSpawning = false;
-        StopCoroutine(SpawnFoods());
+        StopCoroutine(_spawnCoroutine);
+        _hungryCoroutine = StartCoroutine(Hungry());
         CharacterController.Instance.OnEventEnd();
     }
 
