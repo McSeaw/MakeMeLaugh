@@ -1210,7 +1210,7 @@ MonoBehaviour:
   _minSpawnFoodInterval: 1
   _maxSpawnFoodInterval: 1.5
   _hungryBubble: {fileID: 1043308400}
-  _expectedFoodImg: {fileID: 0}
+  _expectedFoodImg: {fileID: 771316237}
   _expectedFood: 0
 --- !u!1 &1978431320
 GameObject:
