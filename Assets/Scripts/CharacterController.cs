@@ -74,11 +74,17 @@ public class CharacterController : MonoBehaviour
     }
 
 
-    public void OnTouch()
+    public void TouchCheck(RaycastHit2D hit)
+    {
+
+    }
+
+
+    void OnTouch()
     {
         Anim.SetBool("Touch", true);
     }
-    public void OnTouchEnd()
+    void OnTouchEnd()
     {
         Anim.SetBool("Touch", false);
     }
