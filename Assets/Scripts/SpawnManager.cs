@@ -8,16 +8,19 @@ public class SpawnManager : MonoBehaviour
     private BonusPoint _currentBonusPoint;
 
     [SerializeField] private float _badProbability;
-    private bool _isGood;
+    [SerializeField] private float _badSpawnInterval;
+    [SerializeField] private float _badIncSpeed;
 
-    [SerializeField] private Vector2 _spawnPos;
+    private Vector2 _spawnPos;
     [SerializeField] private float _incSpeed;
-    [SerializeField] private float _lifeTime;
+    [SerializeField] private float _maxLifeTime;
+    [SerializeField] private float _minLifeTime;
 
     // Start is called before the first frame update
     void Start()
     {
         SpawnNewBonusPoint();
+        InvokeRepeating("SpawnBadPoint", 0, _badSpawnInterval);
     }
 
     // Update is called once per frame
@@ -26,15 +29,31 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    void SpawnNewBonusPoint()
+    public void SpawnNewBonusPoint()
     {
         if (_currentBonusPoint != null) Destroy(_currentBonusPoint.gameObject);
+        GenerateSpawnPos();
         _currentBonusPoint = Instantiate(_bonusPointPrefab, _spawnPos, _bonusPointPrefab.transform.rotation);
-        _currentBonusPoint.SetBonusPoint(_incSpeed, _lifeTime);
+        _currentBonusPoint.SetBonusPoint(_incSpeed, GenerateLifeTime(), this);
     }
 
-    void SetParameters()
+    void SpwanBadPoint()
     {
-        
+        float random = Random.Range(0, 1);
+        if (random > _badProbability) return;
+        GenerateSpawnPos();
+        var badPoint = Instantiate(_bonusPointPrefab, _spawnPos, _bonusPointPrefab.transform.rotation);
+        badPoint.SetBonusPoint(_badIncSpeed, GenerateLifeTime(), this);
+        badPoint.SetBadPointSprite();
+    }
+
+    void GenerateSpawnPos()
+    {
+        _spawnPos = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+    }
+
+    float GenerateLifeTime()
+    {
+        return Random.Range(_minLifeTime, _maxLifeTime);
     }
 }

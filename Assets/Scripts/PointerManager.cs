@@ -5,7 +5,7 @@ using UnityEngine;
 public class PointerManager : MonoBehaviour
 {
     [SerializeField] private PointerController _pointerPrefab;
-    [SerializeField] private PointerController _myPointer;
+    private PointerController _myPointer;
 
     void Start()
     {

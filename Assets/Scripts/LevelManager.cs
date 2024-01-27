@@ -10,16 +10,16 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private Slider _timeSlider;
 
     [SerializeField] private float _timeLimit;
-    [SerializeField] private float _currentTime;
+    private float _currentTime;
 
-    [SerializeField] private float _IncSpeed;
+    private float _IncSpeed;
 
     [SerializeField] private float _defaultDecSpeed;
-    [SerializeField] private float _currentDecSpeed;
+    private float _currentDecSpeed;
     [SerializeField] private float _decSpeedChange;
     [SerializeField] private float _maxDecSpeed;
 
-    [SerializeField] private Vector2 _previousMousePos;
+     private Vector2 _previousMousePos;
 
     // Start is called before the first frame update
     void Start()
