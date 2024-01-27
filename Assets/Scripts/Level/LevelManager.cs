@@ -25,6 +25,8 @@ public class LevelManager : MonoBehaviour
 
     private Vector2 _previousMousePos;
 
+    [SerializeField] private float _dontLikeFoodDec;
+
     public PlayerState State;
 
     public enum PlayerState
@@ -36,13 +38,7 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
@@ -63,6 +59,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (IsInRange() && (State == PlayerState.Hungry || State == PlayerState.Boring))
         {
+            Debug.Log("test");
             _currentTime -= _hungryDecSpeed * Time.deltaTime;
         }
         else
@@ -117,5 +114,10 @@ public class LevelManager : MonoBehaviour
         {
             GameManager.Instance.UpdateGameState(GameManager.GameState.Win);
         }
+    }
+
+    public void DontLikeFood()
+    {
+        _currentTime = _currentTime - _dontLikeFoodDec > 0 ? _currentTime - _dontLikeFoodDec : 0;
     }
 }
