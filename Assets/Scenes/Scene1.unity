@@ -1291,6 +1291,9 @@ MonoBehaviour:
   _minLifeTime: 2
   _maxScale: 1
   _minScale: 0.8
+  _a: {x: 0, y: -5}
+  _b: {x: 2, y: 2}
+  _c: {x: -2, y: 2}
 --- !u!4 &1620074133
 Transform:
   m_ObjectHideFlags: 0

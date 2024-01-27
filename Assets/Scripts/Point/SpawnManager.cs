@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
-{
+{ 
     [SerializeField] private BonusPoint _bonusPointPrefab;
     private BonusPoint _currentBonusPoint;
 
@@ -18,6 +18,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float _minLifeTime;
     [SerializeField] private float _maxScale;
     [SerializeField] private float _minScale;
+
+    [SerializeField] private Vector2 _a;
+    [SerializeField] private Vector2 _b;
+    [SerializeField] private Vector2 _c;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +55,9 @@ public class SpawnManager : MonoBehaviour
 
     void GenerateSpawnPos()
     {
-        _spawnPos = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+        float r1 = Random.Range(0.0f, 1.0f);
+        float r2 = Random.Range(0.0f, 1.0f);
+        _spawnPos = (1 - Mathf.Sqrt(r1)) * _a + Mathf.Sqrt(r1) * (1 - r2) * _b + Mathf.Sqrt(r1) * r2 * _c;
     }
 
     float GenerateLifeTime()

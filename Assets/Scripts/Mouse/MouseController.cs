@@ -48,7 +48,6 @@ public class MouseController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("coll");
         if (_food == null && collision.gameObject.TryGetComponent(out Food food))
         {
             _food = food;
