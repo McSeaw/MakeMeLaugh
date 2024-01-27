@@ -472,8 +472,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.655473, y: 15.311005}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -7.6555, y: 15.311}
+  m_SizeDelta: {x: 169.9756, y: 127.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771316237
 MonoBehaviour:
@@ -733,7 +733,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 310.04785, y: 119.617226}
+  m_AnchoredPosition: {x: -313.8756, y: -139.14807}
   m_SizeDelta: {x: 146.3959, y: 146.3959}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &900420321
@@ -1201,11 +1201,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodPrefabs:
   - {fileID: 7224019388902949535, guid: 5b97e169a7de253478b8b008ea33e02e, type: 3}
-  _minHungryInterval: 30
-  _maxHungryInterval: 30
+  - {fileID: 2602357650216974476, guid: 34db2f48c50341d408fcd7dddbef1b1a, type: 3}
+  _foodSprites:
+  - {fileID: 21300000, guid: 279ca17a474f93f4b82963557a4f42d8, type: 3}
+  - {fileID: 21300000, guid: 496b1102be261774893f772646471398, type: 3}
+  _minHungryInterval: 3
+  _maxHungryInterval: 5
   _minSpawnFoodInterval: 1
   _maxSpawnFoodInterval: 1.5
   _hungryBubble: {fileID: 1043308400}
+  _expectedFoodImg: {fileID: 0}
   _expectedFood: 0
 --- !u!1 &1978431320
 GameObject:
