@@ -465,7 +465,7 @@ PrefabInstance:
     - target: {fileID: 5193464021984321388, guid: 99b5a17b362f0ac4a93ab30db6b5a285, type: 3}
       propertyPath: Laugh
       value: 
-      objectReference: {fileID: 21300000, guid: a53be90911a380845b7a0fd31d017dc8, type: 3}
+      objectReference: {fileID: 21300000, guid: 6521eb7020342e143aa8bf3342cc11ad, type: 3}
     - target: {fileID: 5193464021984321388, guid: 99b5a17b362f0ac4a93ab30db6b5a285, type: 3}
       propertyPath: Normal
       value: 
@@ -473,7 +473,7 @@ PrefabInstance:
     - target: {fileID: 5193464021984321388, guid: 99b5a17b362f0ac4a93ab30db6b5a285, type: 3}
       propertyPath: Smile_large
       value: 
-      objectReference: {fileID: 21300000, guid: 6521eb7020342e143aa8bf3342cc11ad, type: 3}
+      objectReference: {fileID: 21300000, guid: a53be90911a380845b7a0fd31d017dc8, type: 3}
     - target: {fileID: 5193464021984321388, guid: 99b5a17b362f0ac4a93ab30db6b5a285, type: 3}
       propertyPath: Smile_small
       value: 
@@ -743,6 +743,7 @@ MonoBehaviour:
   _camera: {fileID: 519420031}
   _timeSlider: {fileID: 2046748453}
   _timeLimit: 20
+  _currentTime: 0
   _defaultDecSpeed: 1
   _decSpeedChange: 0.001
   _maxDecSpeed: 2
@@ -1159,8 +1160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c218b3ef9bc0584daccdfe5798783df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pointerNormal: {fileID: 2800000, guid: db919c0a30171ca43a88074f3cb6ab72, type: 3}
-  _pointerDrag: {fileID: 2800000, guid: 9dc5c4ada3355104f906dae53d7f64ec, type: 3}
+  _pointerNormal: {fileID: 2800000, guid: a45b2cd37ec10094a9149624b6456a70, type: 3}
+  _pointerDrag_1: {fileID: 2800000, guid: 49316c040ab7041418527e193b4ca350, type: 3}
+  _pointerDrag_2: {fileID: 2800000, guid: 8e22a7014b9e05c4e8f5b7a985ce9f76, type: 3}
 --- !u!4 &1978431322
 Transform:
   m_ObjectHideFlags: 0

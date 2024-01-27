@@ -62,7 +62,7 @@ public class CharacterController : MonoBehaviour
 
     void StateUpdate()
     {
-        if (!TakeOverEmote) return;
+        if (TakeOverEmote) return;
 
         float currentTime = LevelManager.Instance._currentTime;
         float timeLimit = LevelManager.Instance._timeLimit;
