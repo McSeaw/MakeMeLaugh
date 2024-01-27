@@ -11,8 +11,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private Slider _timeSlider;
 
-    [SerializeField] private float _timeLimit;
-    private float _currentTime;
+    [SerializeField] public float _timeLimit;
+    public float _currentTime;
 
     private float _IncSpeed;
 
