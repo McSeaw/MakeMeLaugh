@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PointerController : MonoBehaviour
 {
-    [SerializeField] private Sprite _pointerNormal;
-    [SerializeField] private Sprite _pointerDrag;
+    [SerializeField] private Texture2D _pointerNormal;
+    [SerializeField] private Texture2D _pointerDrag;
 
 
     // Start is called before the first frame update
@@ -23,11 +23,12 @@ public class PointerController : MonoBehaviour
 
     void OnMouseDragOn()
     {
-        Cursor.SetCursor(_pointerNormal, Vector2.zero, CursorMode.Auto);
-        gameObject.GetComponent<SpriteRenderer>().sprite = _pointerNormal;
+        Cursor.SetCursor(_pointerDrag, Vector2.zero, CursorMode.Auto);
+        //gameObject.GetComponent<SpriteRenderer>().sprite = _pointerNormal;
     }
     void OnMouseDragOff()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = _pointerDrag;
+        Cursor.SetCursor(_pointerNormal, Vector2.zero, CursorMode.Auto);
+        //gameObject.GetComponent<SpriteRenderer>().sprite = _pointerDrag;
     }
 }
