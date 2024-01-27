@@ -741,12 +741,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bonusPointPrefab: {fileID: 3953751399738349268, guid: 627255753c975304ebd91f58e57a67c3, type: 3}
+  _badPointPrefab: {fileID: 5327135825985360702, guid: 7c20e8448b1ef6042b426ea3dc1e19b6, type: 3}
   _badProbability: 1
-  _badSpawnInterval: 0
-  _badIncSpeed: -4
+  _badSpawnInterval: 3
+  _badIncSpeed: -10
   _incSpeed: 10
   _maxLifeTime: 4
   _minLifeTime: 2
+  _maxScale: 1
+  _minScale: 0.2
 --- !u!4 &1620074133
 Transform:
   m_ObjectHideFlags: 0
