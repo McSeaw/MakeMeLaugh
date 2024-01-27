@@ -27,6 +27,14 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private float _dontLikeFoodDec;
 
+    private float _delayRejectTime = 0.5f;
+    private bool _rejected = false;
+    private bool _isDelayRejecting = false;
+
+    private float _delayTouchTime = 0.5f;
+    private bool _touched = false;
+    private bool _isDelayTouching = false;
+
     public PlayerState State;
 
     public enum PlayerState
@@ -53,19 +61,43 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsInRange() && State == PlayerState.Normal)
+        var isInRange = IsInRange();
+        if (isInRange && State == PlayerState.Normal && _IncSpeed > 0)
         {
+            CharacterController.Instance.OnTouch();
+            if (!_isDelayTouching)
+            {
+                StartCoroutine(DelayTouchEnd());
+                _isDelayTouching = true;
+            }
+            else
+            {
+                _delayTouchTime = 0.5f;
+            }
             _currentTime += _IncSpeed * Time.deltaTime;
-        }
-        else if (IsInRange() && (State == PlayerState.Hungry || State == PlayerState.Boring))
-        {
-            Debug.Log("test");
-            _currentTime -= _hungryDecSpeed * Time.deltaTime;
         }
         else
         {
-            _currentTime -= _currentDecSpeed * Time.deltaTime;
-            if (State != PlayerState.Normal) _currentTime -= _currentDecSpeed * Time.deltaTime;
+            if (isInRange)
+            {
+                CharacterController.Instance.OnReject();
+                if (!_isDelayRejecting)
+                {
+                    StartCoroutine(DelayRejectEnd());
+                    _isDelayRejecting = true;
+                }
+                else
+                {
+                    _delayRejectTime = 0.5f;
+                }
+                if (State == PlayerState.Normal) { _currentTime += _IncSpeed * Time.deltaTime; }
+                else { _currentTime -= _hungryDecSpeed * Time.deltaTime; }
+            }
+            else
+            {
+                _currentTime -= _currentDecSpeed * Time.deltaTime;
+                if (State != PlayerState.Normal) _currentTime -= _currentDecSpeed * Time.deltaTime;
+            }
         }
         UpdateTimeSlider();
         UpdateDecSpeed();
@@ -119,5 +151,30 @@ public class LevelManager : MonoBehaviour
     public void DontLikeFood()
     {
         _currentTime = _currentTime - _dontLikeFoodDec > 0 ? _currentTime - _dontLikeFoodDec : 0;
+    }
+
+    IEnumerator DelayRejectEnd()
+    {
+        while (_delayRejectTime > 0)
+        {
+            yield return new WaitForEndOfFrame();
+            _delayRejectTime -= Time.deltaTime;
+            //Debug.Log(_delayRejectTime);
+        }
+        _delayRejectTime = 0.5f;
+        CharacterController.Instance.OnRejectEnd();
+        _isDelayRejecting = false;
+    }
+
+    IEnumerator DelayTouchEnd()
+    {
+        while (_delayTouchTime > 0)
+        {
+            yield return new WaitForEndOfFrame();
+            _delayTouchTime -= Time.deltaTime;
+        }
+        _delayTouchTime = 0.5f;
+        CharacterController.Instance.OnTouchEnd();
+        _isDelayTouching = false;
     }
 }

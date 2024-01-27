@@ -438,6 +438,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &771316235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 771316236}
+  - component: {fileID: 771316238}
+  - component: {fileID: 771316237}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &771316236
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771316235}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1043308399}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -7.655473, y: 15.311005}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &771316237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771316235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &771316238
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771316235}
+  m_CullTransparentMesh: 1
 --- !u!1001 &869652752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -658,8 +733,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 310.04785, y: 108.134}
-  m_SizeDelta: {x: 210.2148, y: 280.2866}
+  m_AnchoredPosition: {x: 310.04785, y: 119.617226}
+  m_SizeDelta: {x: 146.3959, y: 146.3959}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &900420321
 MonoBehaviour:
@@ -742,7 +817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 519420031}
   _timeSlider: {fileID: 2046748453}
-  _timeLimit: 20
+  _timeLimit: 200
   _currentTime: 0
   _defaultDecSpeed: 1
   _decSpeedChange: 0.001
@@ -782,7 +857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1043308399
 RectTransform:
   m_ObjectHideFlags: 0
@@ -794,13 +869,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 771316236}
   m_Father: {fileID: 1103177302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -176.07657, y: 0.9569254}
-  m_SizeDelta: {x: 318.9225, y: 318.9225}
+  m_AnchoredPosition: {x: -223.92346, y: 81.339714}
+  m_SizeDelta: {x: 191.2369, y: 191.2369}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043308400
 MonoBehaviour:
@@ -1057,12 +1133,12 @@ MonoBehaviour:
   _badPointPrefab: {fileID: 5327135825985360702, guid: 7c20e8448b1ef6042b426ea3dc1e19b6, type: 3}
   _badProbability: 1
   _badSpawnInterval: 3
-  _badIncSpeed: -10
-  _incSpeed: 20
+  _badIncSpeed: -20
+  _incSpeed: 30
   _maxLifeTime: 4
   _minLifeTime: 2
   _maxScale: 1
-  _minScale: 0.2
+  _minScale: 0.8
   _foodPrefab: {fileID: 0}
 --- !u!4 &1620074133
 Transform:
@@ -1125,8 +1201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodPrefabs:
   - {fileID: 7224019388902949535, guid: 5b97e169a7de253478b8b008ea33e02e, type: 3}
-  _minHungryInterval: 1
-  _maxHungryInterval: 2
+  _minHungryInterval: 30
+  _maxHungryInterval: 30
   _minSpawnFoodInterval: 1
   _maxSpawnFoodInterval: 1.5
   _hungryBubble: {fileID: 1043308400}
@@ -1161,8 +1237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointerNormal: {fileID: 2800000, guid: a45b2cd37ec10094a9149624b6456a70, type: 3}
-  _pointerDrag_1: {fileID: 2800000, guid: 49316c040ab7041418527e193b4ca350, type: 3}
-  _pointerDrag_2: {fileID: 2800000, guid: 8e22a7014b9e05c4e8f5b7a985ce9f76, type: 3}
+  _pointerDrag_1: {fileID: 0}
+  _pointerDrag_2: {fileID: 0}
 --- !u!4 &1978431322
 Transform:
   m_ObjectHideFlags: 0

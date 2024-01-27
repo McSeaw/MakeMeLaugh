@@ -9,7 +9,7 @@ public class BoringManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(Boring());
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class BoringManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(_boringIntervel);
+            
         }
     }
 

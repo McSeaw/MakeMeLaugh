@@ -101,11 +101,13 @@ public class CharacterController : MonoBehaviour
 
     public void OnTouch()
     {
+        Debug.Log("Touch");
         Anim.SetBool("Touch", true);
         Touching = true;
     }
     public void OnTouchEnd()
     {
+        Debug.Log("EndTouch");
         Anim.SetBool("Touch", false);
         Touching = false;
     }
@@ -113,12 +115,14 @@ public class CharacterController : MonoBehaviour
 
     public void OnReject()
     {
+        Debug.Log("Reject");
         TakeOverEmote = true;
         CurrentEmote = CharacterEmote.Angry;
         Anim.SetBool("Reject", true);
     }
     public void OnRejectEnd()
     {
+        Debug.Log("EndReject");
         TakeOverEmote = false;
         Anim.SetBool("Reject", false);
     }

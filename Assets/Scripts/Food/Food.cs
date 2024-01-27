@@ -20,7 +20,7 @@ public class Food : MonoBehaviour
     [SerializeField] private float _minFoodSpeed;
     [SerializeField] private float _maxFoodSpeed;
 
-    private float _gravityModifier = 0.5f;
+    private float _gravityModifier = 0.25f;
 
     [SerializeField] private int _foodType;
 
@@ -41,21 +41,25 @@ public class Food : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckBound();
         if (!_isDragging)
         {
             foodRb.isKinematic = false;
             return;
         }
         foodRb.isKinematic = true;
-        var mousePos = GetMousePos();
-        transform.position = mousePos - _offset;
-        CheckBound();
     }
 
     private void OnMouseDown()
     {
         _isDragging = true;
         _offset = GetMousePos() - (Vector2)transform.position;
+    }
+
+    private void OnMouseDrag()
+    {
+        var mousePos = GetMousePos();
+        transform.position = mousePos - _offset;
     }
 
     private void OnMouseUp()
