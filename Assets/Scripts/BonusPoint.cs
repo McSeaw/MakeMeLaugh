@@ -5,7 +5,7 @@ using UnityEngine;
 public class BonusPoint : MonoBehaviour
 {
     [SerializeField] private float _incSpeed;
-    public float incSpeed { get; private set; }
+    public float incSpeed {  get { return _incSpeed; } private set {  _incSpeed = value; } }
 
     [SerializeField] private float _lifeTime;
 

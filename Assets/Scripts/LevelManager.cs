@@ -52,17 +52,15 @@ public class SceneManager : MonoBehaviour
         _previousMousePos = Input.mousePosition;
 
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+        if (hit)
         {
             if (hit.collider.gameObject.TryGetComponent(out BonusPoint bonusPoint))
             {
-                Debug.Log("test");
                 _IncSpeed = bonusPoint.incSpeed;
                 return true;
             }
         }
-        
 
         return false;
     }
@@ -86,7 +84,7 @@ public class SceneManager : MonoBehaviour
         }
         if (_currentTime > _timeLimit)
         {
-            GameManager.Instance.UpdateGameState(GameManager.GameState.Victory);
+            GameManager.Instance.UpdateGameState(GameManager.GameState.Win);
         }
     }
 }

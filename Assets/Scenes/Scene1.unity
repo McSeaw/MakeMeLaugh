@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 975439295}
   - component: {fileID: 975439294}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -700,11 +700,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bonusPointPrefab: {fileID: 3953751399738349268, guid: 627255753c975304ebd91f58e57a67c3, type: 3}
-  _currentBonusPoint: {fileID: 0}
   _badProbability: 0
   _spawnPos: {x: 0, y: 0}
-  _incSpeed: 0
-  _lifeTime: 0
+  _incSpeed: 10
+  _lifeTime: 2
 --- !u!4 &1620074133
 Transform:
   m_ObjectHideFlags: 0

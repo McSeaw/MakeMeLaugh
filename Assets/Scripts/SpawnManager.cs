@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private BonusPoint _bonusPointPrefab;
-    [SerializeField] private BonusPoint _currentBonusPoint;
+    private BonusPoint _currentBonusPoint;
 
     [SerializeField] private float _badProbability;
     private bool _isGood;
@@ -30,10 +30,10 @@ public class SpawnManager : MonoBehaviour
     {
         if (_currentBonusPoint != null) Destroy(_currentBonusPoint.gameObject);
         _currentBonusPoint = Instantiate(_bonusPointPrefab, _spawnPos, _bonusPointPrefab.transform.rotation);
-        //_currentBonusPoint.SetBonusPoint(_incSpeed, _lifeTime);
+        _currentBonusPoint.SetBonusPoint(_incSpeed, _lifeTime);
     }
 
-    void GenerateIncSpeed()
+    void SetParameters()
     {
         
     }

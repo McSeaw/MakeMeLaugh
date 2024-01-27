@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -42,8 +43,14 @@ public class GameManager : MonoBehaviour
                 GameLose();
                 break;
             case GameState.InGame:
+                LoadLevel();
                 break;
-            case GameState.Victory:
+            case GameState.Win:
+                _currentLevel += 1;
+                GameWin();
+                break;
+            case GameState.Quit:
+                QuitGame();
                 break;
         }
     }
@@ -52,11 +59,31 @@ public class GameManager : MonoBehaviour
     {
         Lose,
         InGame,
-        Victory,
+        Win,
+        Quit,
     }
 
     void GameLose()
     {
-        SceneManager.
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    void GameWin()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
+
+    void LoadLevel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2 + _currentLevel);
+    }
+
+    void QuitGame()
+    {
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
     }
 }
