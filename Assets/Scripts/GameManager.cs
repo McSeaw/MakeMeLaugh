@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -65,17 +66,17 @@ public class GameManager : MonoBehaviour
 
     void GameLose()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
     }
 
     void GameWin()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
     void LoadLevel()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(2 + _currentLevel);
+        SceneManager.LoadScene(2 + _currentLevel);
     }
 
     void QuitGame()

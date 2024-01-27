@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SceneManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance;
+
     [SerializeField] private Camera _camera;
 
     [SerializeField] private Slider _timeSlider;
@@ -19,11 +21,34 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private float _decSpeedChange;
     [SerializeField] private float _maxDecSpeed;
 
-     private Vector2 _previousMousePos;
+    [SerializeField] private float _hungryDecSpeed;
+
+    private Vector2 _previousMousePos;
+
+    public PlayerState State;
+
+    public enum PlayerState
+    {
+        Normal,
+        Hungry,
+        Boring,
+    }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        State = PlayerState.Normal;
         _currentTime = _timeLimit / 2;
         _currentDecSpeed = _defaultDecSpeed;
         UpdateTimeSlider();
@@ -32,13 +57,18 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsInRange())
+        if (IsInRange() && State == PlayerState.Normal)
         {
             _currentTime += _IncSpeed * Time.deltaTime;
+        }
+        else if (IsInRange() && (State == PlayerState.Hungry || State == PlayerState.Boring))
+        {
+            _currentTime -= _hungryDecSpeed * Time.deltaTime;
         }
         else
         {
             _currentTime -= _currentDecSpeed * Time.deltaTime;
+            if (State != PlayerState.Normal) _currentTime -= _currentDecSpeed * Time.deltaTime;
         }
         UpdateTimeSlider();
         UpdateDecSpeed();
