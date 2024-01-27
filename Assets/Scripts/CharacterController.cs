@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    public static CharacterController Instance;
 
     [SerializeField] private Sprite Normal;
     [SerializeField] private Sprite Angry;
@@ -30,6 +31,10 @@ public class CharacterController : MonoBehaviour
         Laugh,
     }
 
+    void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

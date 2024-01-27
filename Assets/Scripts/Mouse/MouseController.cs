@@ -13,6 +13,8 @@ public class MouseController : MonoBehaviour
 
     private float _spawnX;
 
+    private bool _direction;
+
     // Start is called before the first frame update
     void Start()
     {
