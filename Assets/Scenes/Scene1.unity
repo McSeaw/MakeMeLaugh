@@ -744,8 +744,8 @@ MonoBehaviour:
   _badPointPrefab: {fileID: 5327135825985360702, guid: 7c20e8448b1ef6042b426ea3dc1e19b6, type: 3}
   _badProbability: 1
   _badSpawnInterval: 3
-  _badIncSpeed: -10
-  _incSpeed: 10
+  _badIncSpeed: -20
+  _incSpeed: 20
   _maxLifeTime: 4
   _minLifeTime: 2
   _maxScale: 1

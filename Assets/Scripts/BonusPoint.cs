@@ -20,6 +20,7 @@ public class BonusPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (incSpeed <= 0) return;
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0)
         {
