@@ -25,4 +25,9 @@ public class BoringManager : MonoBehaviour
             yield return new WaitForSeconds(_boringIntervel);
         }
     }
+
+    void RelieveBoring()
+    {
+
+    }
 }

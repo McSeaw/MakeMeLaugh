@@ -27,6 +27,10 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private float _dontLikeFoodDec;
 
+    private float _delayTouchTime = 0.5f;
+    private bool _touched = false;
+    private bool _isDelayTouching = false;
+
     public PlayerState State;
 
     public enum PlayerState
@@ -53,19 +57,33 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsInRange() && State == PlayerState.Normal)
+        if (IsInRange() && State == PlayerState.Normal && _IncSpeed > 0)
         {
             _currentTime += _IncSpeed * Time.deltaTime;
-        }
-        else if (IsInRange() && (State == PlayerState.Hungry || State == PlayerState.Boring))
-        {
-            Debug.Log("test");
-            _currentTime -= _hungryDecSpeed * Time.deltaTime;
+            _isDelayTouching = false;
+            StopCoroutine(DelayedOnTouchEnd());
+            _delayTouchTime = 0.5f;
+            CharacterController.Instance.OnTouch();
+            _touched = true;
         }
         else
         {
-            _currentTime -= _currentDecSpeed * Time.deltaTime;
-            if (State != PlayerState.Normal) _currentTime -= _currentDecSpeed * Time.deltaTime;
+            if (_touched && !_isDelayTouching)
+            {
+                _isDelayTouching = true;
+                StartCoroutine(DelayedOnTouchEnd());
+            }
+            if (IsInRange())
+            {
+                CharacterController.Instance.OnReject();
+                if (State == PlayerState.Normal) { _currentTime += _IncSpeed * Time.deltaTime; }
+                else { _currentTime -= _hungryDecSpeed * Time.deltaTime; }
+            }
+            else
+            {
+                _currentTime -= _currentDecSpeed * Time.deltaTime;
+                if (State != PlayerState.Normal) _currentTime -= _currentDecSpeed * Time.deltaTime;
+            }
         }
         UpdateTimeSlider();
         UpdateDecSpeed();
@@ -80,6 +98,7 @@ public class LevelManager : MonoBehaviour
 
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+        CharacterController.Instance.TouchCheck(hit);
         if (hit)
         {
             if (hit.collider.gameObject.TryGetComponent(out BonusPoint bonusPoint))
@@ -119,5 +138,18 @@ public class LevelManager : MonoBehaviour
     public void DontLikeFood()
     {
         _currentTime = _currentTime - _dontLikeFoodDec > 0 ? _currentTime - _dontLikeFoodDec : 0;
+    }
+
+    IEnumerator DelayedOnTouchEnd()
+    {
+        while (_delayTouchTime > 0)
+        {
+            yield return new WaitForEndOfFrame();
+            _delayTouchTime -= Time.deltaTime;
+        }
+        Debug.Log("TouchEnd");
+        CharacterController.Instance.OnTouchEnd();
+        _touched = false;
+        _isDelayTouching = false;
     }
 }

@@ -45,7 +45,10 @@ public class HungryManager : MonoBehaviour
             _hungryBubble.gameObject.SetActive(true);
             yield return new WaitForSeconds(1);
             if (LevelManager.Instance.State == LevelManager.PlayerState.Normal)
+            {
                 LevelManager.Instance.State = LevelManager.PlayerState.Hungry;
+                CharacterController.Instance.OnEvent();
+            }
         }
     }
 
@@ -55,6 +58,7 @@ public class HungryManager : MonoBehaviour
         LevelManager.Instance.State = LevelManager.PlayerState.Normal;
         _isSpawning = false;
         StopCoroutine(SpawnFoods());
+        CharacterController.Instance.OnEventEnd();
     }
 
     IEnumerator SpawnFoods()
