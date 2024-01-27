@@ -46,6 +46,7 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //TouchCheck();
         StateUpdate();
         FaceUpdate();
     }
@@ -74,19 +75,39 @@ public class CharacterController : MonoBehaviour
     }
 
 
-    public void TouchCheck(RaycastHit2D hit)
-    {
 
-    }
+    //float waitTime = 0.05f;
+    //float lastTime = 0f;
+    bool Touching = false;
+    //public void TouchCheck()
+    //{
+    //    var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+    //    if ((!hit || !hit.collider.gameObject.TryGetComponent(out BonusPoint currentpoint)) && Touching)
+    //    {
+    //        lastTime += Time.deltaTime;
+    //        if (lastTime >= waitTime)
+    //        {
+    //            OnTouchEnd();
+    //            lastTime = 0f;
+    //        }
+    //    }
+    //    else if(Input.GetMouseButton(0) && !Touching)
+    //    {
+    //        OnTouch();
+    //    }
+    //}
 
 
-    void OnTouch()
+    public void OnTouch()
     {
         Anim.SetBool("Touch", true);
+        Touching = true;
     }
-    void OnTouchEnd()
+    public void OnTouchEnd()
     {
         Anim.SetBool("Touch", false);
+        Touching = false;
     }
 
 

@@ -29,7 +29,6 @@ public class PointerController : MonoBehaviour
     private Texture2D currentTexture;
     void OnMouseDragOn()
     {
-        Debug.Log(11111);
         currenttime += Time.deltaTime;
         if (currentTexture == null) Cursor.SetCursor(_pointerDrag_1, Vector2.zero, CursorMode.Auto);
         if (currenttime > changetime) 

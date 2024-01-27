@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6527117689819430703}
   - component: {fileID: 5193464021984321388}
+  - component: {fileID: -6431483747573553432}
   m_Layer: 0
   m_Name: "\u5C0F\u72D0\u72F8"
   m_TagString: Untagged
@@ -221,6 +222,27 @@ MonoBehaviour:
   Laugh: {fileID: 21300000, guid: a53be90911a380845b7a0fd31d017dc8, type: 3}
   Face: {fileID: 8449474424997315137}
   CurrentEmote: 0
+--- !u!95 &-6431483747573553432
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015626843798189252}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 823054f07ff4e7d469d1ba9ae72055d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2025648730011311900
 GameObject:
   m_ObjectHideFlags: 0
