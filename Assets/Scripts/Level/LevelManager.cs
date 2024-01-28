@@ -33,6 +33,13 @@ public class LevelManager : MonoBehaviour
     private float _delayTouchTime = 0.5f;
     private bool _isDelayTouching = false;
 
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip _eatAudio;
+    [SerializeField] private AudioClip _relaxAudio;
+
+    private bool _canRelax = true;
+    private float _relaxCoolDown = 0.8f;
+
     public PlayerState State;
 
     public enum PlayerState
@@ -50,6 +57,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         State = PlayerState.Normal;
         _currentTime = _timeLimit / 2;
         _currentDecSpeed = _defaultDecSpeed;
@@ -62,6 +70,13 @@ public class LevelManager : MonoBehaviour
         var isInRange = IsInRange();
         if (isInRange && State == PlayerState.Normal && _IncSpeed > 0)
         {
+            if (_canRelax)
+            {
+                _audioSource.PlayOneShot(_relaxAudio);
+                _relaxCoolDown = 0.8f;
+                _canRelax = false;
+                StartCoroutine(AudioCoolDown());
+            }
             OnTouchTrigger();
             _currentTime += _IncSpeed * Time.deltaTime;
         }
@@ -136,6 +151,7 @@ public class LevelManager : MonoBehaviour
 
     public void LikeFood()
     {
+        _audioSource.PlayOneShot(_eatAudio);
         OnTouchTrigger();
         _currentTime += _dontLikeFoodDec;
     }
@@ -191,5 +207,15 @@ public class LevelManager : MonoBehaviour
         _delayTouchTime = 0.5f;
         CharacterController.Instance.OnTouchEnd();
         _isDelayTouching = false;
+    }
+
+    IEnumerator AudioCoolDown()
+    {
+        while (_relaxCoolDown > 0)
+        {
+            yield return null;
+            _relaxCoolDown -= Time.deltaTime;
+        }
+        _canRelax = true;
     }
 }

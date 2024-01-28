@@ -24,11 +24,16 @@ public class HungryManager : MonoBehaviour
 
     private MouseSpawn _mouseSpawn;
 
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip _bubbleAudio;
+    [SerializeField] private AudioClip _hungryAudio;
+
     // Start is called before the first frame update
     void Start()
     {
         _hungryCoroutine = StartCoroutine(Hungry());
         _mouseSpawn = GetComponent<MouseSpawn>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,10 +50,12 @@ public class HungryManager : MonoBehaviour
         _expectedFood = Random.Range(0, _foodPrefabs.Count);
         _expectedFoodImg.sprite = _foodSprites[_expectedFood];
         _hungryBubble.gameObject.SetActive(true);
+        _audioSource.PlayOneShot(_bubbleAudio);
         yield return new WaitForSeconds(1);
         if (LevelManager.Instance.State == LevelManager.PlayerState.Normal)
         {
             LevelManager.Instance.State = LevelManager.PlayerState.Hungry;
+            _audioSource.PlayOneShot(_hungryAudio);
             _spawnCoroutine = StartCoroutine(SpawnFoods());
             if (_mouseSpawn != null) { _mouseSpawn.OnHungry(); }
             CharacterController.Instance.OnEvent();

@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
 
     private int _currentLevel;
 
+    private AudioSource _audioSource;
+    [SerializeField] AudioClip _laughAudio;
+    [SerializeField] AudioClip _angryAudio;
+
     private void Awake()
     {
         if (Instance != null)
@@ -27,6 +31,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Physics.IgnoreLayerCollision(6, 7, true);
+        _audioSource = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -66,11 +71,13 @@ public class GameManager : MonoBehaviour
 
     void GameLose()
     {
+        _audioSource.PlayOneShot(_angryAudio);
         SceneManager.LoadScene(1);
     }
 
     void GameWin()
     {
+        _audioSource.PlayOneShot(_laughAudio);
         SceneManager.LoadScene(2);
     }
 

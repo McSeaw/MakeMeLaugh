@@ -134,11 +134,11 @@ PrefabInstance:
     - target: {fileID: 2241793825159365886, guid: 6d776cfa120158844b43f13f1180cd7b, type: 3}
       propertyPath: _hungryBubble
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1985463659}
     - target: {fileID: 2241793825159365886, guid: 6d776cfa120158844b43f13f1180cd7b, type: 3}
       propertyPath: _expectedFoodImg
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1985463658}
     - target: {fileID: 6901496679850012328, guid: 6d776cfa120158844b43f13f1180cd7b, type: 3}
       propertyPath: m_Name
       value: HungryManager
@@ -925,6 +925,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6853318476870900240, guid: 660084796e57b9c4ca274a182f04bc97, type: 3}
   m_PrefabInstance: {fileID: 1985463656}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1985463658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7495201226243916128, guid: 660084796e57b9c4ca274a182f04bc97, type: 3}
+  m_PrefabInstance: {fileID: 1985463656}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1985463659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 809491544110132584, guid: 660084796e57b9c4ca274a182f04bc97, type: 3}
+  m_PrefabInstance: {fileID: 1985463656}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2132307134
 GameObject:
   m_ObjectHideFlags: 0

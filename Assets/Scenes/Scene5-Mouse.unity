@@ -589,7 +589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2726078067601661578, guid: 660084796e57b9c4ca274a182f04bc97, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6853318476870900240, guid: 660084796e57b9c4ca274a182f04bc97, type: 3}
       propertyPath: m_Pivot.x
@@ -994,6 +994,14 @@ PrefabInstance:
       propertyPath: _expectedFoodImg
       value: 
       objectReference: {fileID: 987995849}
+    - target: {fileID: 2241793825159365886, guid: 6d776cfa120158844b43f13f1180cd7b, type: 3}
+      propertyPath: _maxHungryInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241793825159365886, guid: 6d776cfa120158844b43f13f1180cd7b, type: 3}
+      propertyPath: _minHungryInterval
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6901496679850012328, guid: 6d776cfa120158844b43f13f1180cd7b, type: 3}
       propertyPath: m_Name
       value: HungryManager
@@ -1095,6 +1103,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 412017963}
+    - target: {fileID: 8339571119041308804, guid: 875a0425f8ef8dd44b66fa1e3e83c4b0, type: 3}
+      propertyPath: _timeLimit
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 8339571119041308804, guid: 875a0425f8ef8dd44b66fa1e3e83c4b0, type: 3}
       propertyPath: _timeSlider
       value: 
