@@ -16,6 +16,8 @@ public class MouseController : MonoBehaviour
 
     private bool _isToRight;
 
+    private Rigidbody2D _mouseRb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class MouseController : MonoBehaviour
         _isToRight = temp > 0.5f;
         _spawnX = (_isToRight ? -1 : 1) * 10.0f;
         transform.position = new Vector2(_spawnX, -4.5f);
+        _mouseRb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -62,6 +65,6 @@ public class MouseController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
+        _mouseRb.AddForce(new Vector2(2000*Random.Range(-1f, 1f), 2000*Random.Range(0f, 1f)));
     }
 }

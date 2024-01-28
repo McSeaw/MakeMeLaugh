@@ -66,17 +66,17 @@ public class GameManager : MonoBehaviour
 
     void GameLose()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     void GameWin()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
-    void LoadLevel()
+    public void LoadLevel()
     {
-        SceneManager.LoadScene(2 + _currentLevel);
+        SceneManager.LoadScene(3 + _currentLevel);
     }
 
     void QuitGame()

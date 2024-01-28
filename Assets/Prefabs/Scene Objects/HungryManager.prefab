@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6901496679850012328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7396956734057198694}
+  - component: {fileID: 2241793825159365886}
+  - component: {fileID: 2059729349349404062}
+  m_Layer: 0
+  m_Name: HungryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7396956734057198694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901496679850012328}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.7622404, y: -104.75404, z: 1.689815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2241793825159365886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901496679850012328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8fdd8009ae85a4fa5baf5b66d32ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _foodPrefabs:
+  - {fileID: 7224019388902949535, guid: 5b97e169a7de253478b8b008ea33e02e, type: 3}
+  - {fileID: 2602357650216974476, guid: 34db2f48c50341d408fcd7dddbef1b1a, type: 3}
+  _foodSprites:
+  - {fileID: 21300000, guid: 279ca17a474f93f4b82963557a4f42d8, type: 3}
+  - {fileID: 21300000, guid: 496b1102be261774893f772646471398, type: 3}
+  _minHungryInterval: 0
+  _maxHungryInterval: 1
+  _minSpawnFoodInterval: 1
+  _maxSpawnFoodInterval: 1
+  _hungryBubble: {fileID: 0}
+  _expectedFoodImg: {fileID: 0}
+  _expectedFood: 0
+--- !u!114 &2059729349349404062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901496679850012328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a557dbe4d192724c9cbbe95d55da03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mousePrefab: {fileID: 183172027691213855, guid: d87afc190c60e2d47a0679cde3dedc52, type: 3}
+  spawnIntervel: 1

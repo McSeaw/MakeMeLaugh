@@ -28,11 +28,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float _dontLikeFoodDec;
 
     private float _delayRejectTime = 0.5f;
-    private bool _rejected = false;
     private bool _isDelayRejecting = false;
 
     private float _delayTouchTime = 0.5f;
-    private bool _touched = false;
     private bool _isDelayTouching = false;
 
     public PlayerState State;
